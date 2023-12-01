@@ -20,7 +20,7 @@
   background: #ccc;
 }
 
-.card {
+.card { /* formularios */
   @include flex-container;
 }
 
@@ -66,19 +66,14 @@ $success: #7952b3;
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
-@import "bootstrap/scss/tables";
 @import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
 @import "bootstrap/scss/dropdown";
 @import "bootstrap/scss/alert";
-@import "bootstrap/scss/button-group";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar";
 @import "bootstrap/scss/card";
-@import "bootstrap/scss/breadcrumb";
-@import "bootstrap/scss/accordion";
-@import "bootstrap/scss/pagination";
 @import "bootstrap/scss/badge";
 @import "bootstrap/scss/alert";
 @import "bootstrap/scss/progress";

@@ -1,10 +1,17 @@
 {
-  "extends": ["stylelint-config-standard-scss"],
+  "extends": ["stylelint-config-standard"],
   "scripts": {
-    "lint": "stylelint \"**/*.css\""
+    "npm_lint": "npm run eslint && npm run stylelint",
+    "lint": "stylelint \"**/*.css\"",
+    "stylelint": "stylelint \"src/**/*.css\" --fix"
+  },
+  "dependencies": {
+    "stylelint": "^15.11.0",
+    "eslint": "^6.6.0"
   },
   "overrides": [
     {
+      "files": ["**/*.scss", "**/*.scss"],
       "customSyntax": "postcss-scss"
     }
   ],
@@ -13,13 +20,9 @@
     "unit-no-unknown": true,
     "property-no-unknown": true,
     "color-no-invalid-hex": true,
-    "color-no-hex": true,
-    "function-disallowed-list": ["/^rgb/", "/^hsl/"],
-    "color-named": "never",
     "declaration-block-no-duplicate-properties": true,
     "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["ng-deep"] }],
     "media-feature-name-no-unknown": true,
-    "at-rule-no-unknown": null,
     "comment-no-empty": true,
     "no-duplicate-at-import-rules": true,
     "no-extra-semicolons": true,
@@ -30,8 +33,6 @@
     "selector-no-qualifying-type": null,
     "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$|^noUi-|calenderMatMenu",
     "selector-max-compound-selectors": null,
-    "scss/dollar-variable-pattern": null,
-    "order/properties-alphabetical-order": null
     "at-rule-no-unknown": [
       true,
       {
