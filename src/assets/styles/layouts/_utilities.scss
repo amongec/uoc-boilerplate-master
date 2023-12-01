@@ -1,0 +1,32 @@
+@import "/node_modules/bootstrap/scss/helpers";
+@import "/node_modules/bootstrap/scss/mixins";
+
+@import "/node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab,
+    )
+  )
+);
+
+$utilities: (
+  "opacity": (
+    property: opacity,
+    class: opacity,
+    state: hover,
+    responsive: true,
+    values: (
+      0: 0,
+      25: .25,
+      50: .5,
+      75: .75,
+      100: 1,
+    )
+  )
+);

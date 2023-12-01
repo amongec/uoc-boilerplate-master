@@ -1,0 +1,89 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "scripts": {
+    "lint": "stylelint \"**/*.css\""
+  },
+  "overrides": [
+    {
+      "customSyntax": "postcss-scss"
+    }
+  ],
+  "rules": {
+    "length-zero-no-unit": true,
+    "unit-no-unknown": true,
+    "property-no-unknown": true,
+    "color-no-invalid-hex": true,
+    "color-no-hex": true,
+    "function-disallowed-list": ["/^rgb/", "/^hsl/"],
+    "color-named": "never",
+    "declaration-block-no-duplicate-properties": true,
+    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["ng-deep"] }],
+    "media-feature-name-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "comment-no-empty": true,
+    "no-duplicate-at-import-rules": true,
+    "no-extra-semicolons": true,
+    "no-invalid-double-slash-comments": true,
+    "shorthand-property-no-redundant-values": true,
+    "value-keyword-case": "lower",
+    "max-nesting-depth": null,
+    "selector-no-qualifying-type": null,
+    "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$|^noUi-|calenderMatMenu",
+    "selector-max-compound-selectors": null,
+    "scss/dollar-variable-pattern": null,
+    "order/properties-alphabetical-order": null
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "apply",
+          "responsive",
+          "variants",
+          "screen",
+          "use",
+          "extend",
+          "at-root",
+          "debug",
+          "warn",
+          "error",
+          "if",
+          "else",
+          "for",
+          "each",
+          "while",
+          "mixin",
+          "include",
+          "content",
+          "return",
+          "function"
+        ]
+      }
+    ],
+    "selector-class-pattern": [
+      "/^[a-z]+(?:-[a-z]+)*(?:_{2}[a-z]+(?:-[a-z]+)*)?(?:-{2}[a-z]+(?:-[a-z]+)*)?$/",
+      {
+        "resolveNestedSelectors": true
+      }
+    ],
+    "declaration-empty-line-before": "never",
+    "font-family-name-quotes": "always-unless-keyword",
+    "no-duplicate-selectors": true,
+    "property-no-unknown": true,
+    "declaration-property-unit-allowed-list": {
+      "/^border(?!.*-radius$)/": ["px", "%"],
+      "/^border-radius/": ["px", "rem", "%"],
+      "/^box-shadow": ["px"],
+      "/^margin/": ["rem", "px"],
+      "/^padding/": ["rem", "px"],
+      "font-size": ["rem", "em", "px"],
+      "height": ["rem", "%", "vh", "px"],
+      "width": ["rem", "%", "vw", "px"]
+    },
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
+  }
+}
