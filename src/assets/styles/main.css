@@ -4,32 +4,10 @@ body {
   min-width: 100vw;
 }
 
-html {
-  font-size: 1rem;
-}
-
-@include media-breakpoint-up(sm) {
-  html {
-    font-size: 1.2rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 1.4rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  html {
-    font-size: 1.6rem;
-  }
-}
-
 :root {
   --bs-maroon: #d2470f;
   --bs-orange: #ffc107;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .component {
@@ -70,7 +48,7 @@ a:link {
   color: #ffc107;
 }
 
-/*--------------------------------- declaration opacity and queries  --------------------------------*/
+/* --------------------------------- declaration opacity and queries  -------------------------------- */
 .o-0 { opacity: 0; }
 .o-25 { opacity: .25; }
 .o-50 { opacity: .5; }
@@ -83,7 +61,7 @@ a:link {
 .opacity-75-hover:hover { opacity: .75 !important; }
 .opacity-100-hover:hover { opacity: 1 !important; }
 
-@media (min-width: 576px) {
+@media (width >= 576px) {
   .opacity-sm-0 { opacity: 0 !important; }
   .opacity-sm-25 { opacity: .25 !important; }
   .opacity-sm-50 { opacity: .5 !important; }
@@ -91,7 +69,7 @@ a:link {
   .opacity-sm-100 { opacity: 1 !important; }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .opacity-md-0 { opacity: 0 !important; }
   .opacity-md-25 { opacity: .25 !important; }
   .opacity-md-50 { opacity: .5 !important; }
@@ -99,7 +77,7 @@ a:link {
   .opacity-md-100 { opacity: 1 !important; }
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .opacity-lg-0 { opacity: 0 !important; }
   .opacity-lg-25 { opacity: .25 !important; }
   .opacity-lg-50 { opacity: .5 !important; }
@@ -107,7 +85,7 @@ a:link {
   .opacity-lg-100 { opacity: 1 !important; }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .opacity-xl-0 { opacity: 0 !important; }
   .opacity-xl-25 { opacity: .25 !important; }
   .opacity-xl-50 { opacity: .5 !important; }
@@ -115,69 +93,65 @@ a:link {
   .opacity-xl-100 { opacity: 1 !important; }
 }
 
-@media (min-width: 1400px) {
+@media (width >= 1400px) {
   .opacity-xxl-0 { opacity: 0 !important; }
   .opacity-xxl-25 { opacity: .25 !important; }
   .opacity-xxl-50 { opacity: .5 !important; }
   .opacity-xxl-75 { opacity: .75 !important; }
   .opacity-xxl-100 { opacity: 1 !important; }
 }
-/*--------------------------------- END declaration opacity and queries--------------------------------*/
+
+/* --------------------------------- END declaration opacity and queries-------------------------------- */
+
 /* ---------------------section1: portada ------------------------ */
-@media (min-width: 576px) {
+@media (width >= 576px) {
   .section1::after {
-    background-image: url(../images/tennis-portada_1280.jpg);
-    background-image:linear-gradient(to right,#d2470f 15%, transparent 100%), url(../images/tennis-portada_1280.jpg); 
+    background-image: url("../images/tennis-portada_1280.jpg");
+    background-image:linear-gradient(to right,#d2470f 15%, transparent 100%), url("../images/tennis-portada_1280.jpg"); 
   }
 }
   
 @supports (display: grid) {
   .section1::after {
-    text: float-left;
+    text-align: float-left;
     background-image: 
   }
 }
 
 .section1::after {
-  content: "";;
-  background-image: url(../images/tennis-portada_560.jpg);
+  content: "";
   background-repeat: no-repeat;
   background-position: center center;
-  background-image:linear-gradient(to right,#d2470f 15%, transparent 100%), url(../images/tennis-portada_560.jpg); 
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  background-image:linear-gradient(to right,#d2470f 15%, transparent 100%), url("../images/tennis-portada_560.jpg"); 
+  inset: 0;
   position: absolute;
   z-index: -1;
   object-fit: contain;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   flex: 1;
 }
 
 .gradient-custom {
   /* Chrome 10-25, Safari 5.1-6 */
-  background:-webkit-linear-gradient(to right,#d2470f 15%, transparent 100%)
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background:linear-gradient(to right,#d2470f 15%, transparent 100%)
+  
   linear-gradient(to right,#d2470f 15%, transparent 100%)
 }
+
 /*
 .subtitle{
 	font-size: 0.9em;
 	opacity: 0.65;
   line-height: 0.6;
-}*/
+} */
 
 /* ---------------------END section1: portada ------------------------ */
+
 /* -------------------------------- página participantes (with grid) --------------------------------- */ 
 .row {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 10px;
-  column-gap: 2em;
+  gap: 10px 2em;
 }
 
 .row > * {
@@ -228,7 +202,7 @@ a:link {
 .block {
   height: auto;
   background-color: lch(29%, 87%, 301%);
-  background-color: rgba(210, 71, 15, 0.4);
+  background-color: rgb(210 71 15 / 40%);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 100px;
@@ -243,22 +217,20 @@ a:link {
   }
 }
 
-.interview {
-    grid-template-columns: 1fr 1fr;
-}
-
-@media (min-width: 375px) and (max-width: 768px) {
+@media (width >= 375px) and (width <= 768px) {
   .block {
   margin:0;
   }
 }
-/*----------------------------- END participantes ---------------------------*/
-/* --------------------------------------págnaa Nuestro equipo (with: flex) ------------------------------------------ */
+
+/* ----------------------------- END participantes --------------------------- */
+
+/* --------------------------------------página Nuestro equipo (with: flex) ------------------------------------------ */
 
 
 .team-group{
   background-color: lch(82%, 55%, 80%);
-  background-color: rgb(255,193,7);
+  background-color: rgb(255 193 7);
 }
 
 #team {
@@ -270,7 +242,7 @@ a:link {
 div#team figure {
 	background: #fefefe;
 	border: 2px solid #fcfcfc;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	box-shadow: 0 1px 2px rgb(34 25 25 / 40%);
 	margin: 0 2px 15px;
 	padding: 15px;
 	padding-bottom: 10px;
@@ -310,8 +282,10 @@ div#team:hover figure:not(:hover) {
 .box > * {
   flex: 1;
 }
-/*--------------------------------- END página Nuestro equipo --------------------------------*/
-/*--------------------------------- cookies banner--------------------------------*/
+
+/* --------------------------------- END página Nuestro equipo -------------------------------- */
+
+/* --------------------------------- cookies banner-------------------------------- */
 #cb-cookie-banner { 
   position: fixed; 
   bottom: 0; 
@@ -324,7 +298,7 @@ div#team:hover figure:not(:hover) {
 } 
 
 h6:hover {
-  test-decoration: underline;
+  text-decoration: underline;
   background: orange;
 }
 
@@ -332,18 +306,18 @@ h6:hover {
   width: 200px;
   height: 200px;
   border: 1px solid #c3c3c3;
-  display: -webkit-flex;
-  -webkit-flex-direction: column-reverse;
-  display: flex;
   flex-direction: column-reverse;
+  display: flex;
 }
 
 .scrolling-wrapper img {
 height: 3rem;
 
 }
+
 .scrolling-wrapper {
  animation: slide 15s linear infinite;
+ overflow-x: auto;
 }
 
 .container-fluid {
@@ -352,7 +326,4 @@ height: 3rem;
   opacity: 0.8;
 }
 
-.scrolling-wrapper{
-	overflow-x: auto;
-}
 /* ---------------------END cookies banner ------------------------ */
