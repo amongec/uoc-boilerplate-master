@@ -133,8 +133,8 @@ a:link {
   
 @supports (display: grid) {
   .section1::after {
-  text: float-left;
-  background-image: 
+    text: float-left;
+    background-image: 
   }
 }
 
@@ -164,12 +164,12 @@ a:link {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   linear-gradient(to right,#d2470f 15%, transparent 100%)
 }
-
+/*
 .subtitle{
 	font-size: 0.9em;
 	opacity: 0.65;
   line-height: 0.6;
-}
+}*/
 
 /* ---------------------END section1: portada ------------------------ */
 /* -------------------------------- página participantes (with grid) --------------------------------- */ 
