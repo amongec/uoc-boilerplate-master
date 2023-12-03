@@ -3,7 +3,9 @@
   "scripts": {
     "npm_lint": "npm run eslint && npm run stylelint",
     "lint": "stylelint \"**/*.css\"",
-    "stylelint": "stylelint \"src/**/*.css\" --fix"
+    "stylelint": ["stylelint \"src/**/*.css\" --fix",
+    "stylelint \"src/**/*.scss\" --fix" 
+  ]
   },
   "dependencies": {
     "stylelint": "^15.11.0",

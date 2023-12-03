@@ -4,9 +4,32 @@ body {
   min-width: 100vw;
 }
 
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
 :root {
   --bs-maroon: #d2470f;
   --bs-orange: #ffc107;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .component {
@@ -24,10 +47,6 @@ body {
   color: tint-color($primary, 10%);
 }
 
-.btn-group {
-  color: shade-color($danger, 30%);
-}
-
 .btn-group:hover{
  text-decoration: underline;
 }
@@ -37,27 +56,87 @@ body {
 }
 
 a:link {
-  color: #d2470f;
+  color: var(--bs-maroon);
 }
 
 .bi {
-font-size: 1.8rem; 
-color:black;
-opacity: .8;
-margin: 1rem;
+  font-size: 1.8rem; 
+  color:black;
+  opacity: .8;
+  margin: 1rem;
 }
 
 .bi:hover {
-color: #ffc107;
+  color: #ffc107;
 }
 
-.block {
-  height: 350px;
-  background: rgba(86,61,124,.15);
+/*--------------------------------- declaration opacity and queries  --------------------------------*/
+.o-0 { opacity: 0; }
+.o-25 { opacity: .25; }
+.o-50 { opacity: .5; }
+.o-75 { opacity: .75; }
+.o-100 { opacity: 1; }
+
+.opacity-0-hover:hover { opacity: 0 !important; }
+.opacity-25-hover:hover { opacity: .25 !important; }
+.opacity-50-hover:hover { opacity: .5 !important; }
+.opacity-75-hover:hover { opacity: .75 !important; }
+.opacity-100-hover:hover { opacity: 1 !important; }
+
+@media (min-width: 576px) {
+  .opacity-sm-0 { opacity: 0 !important; }
+  .opacity-sm-25 { opacity: .25 !important; }
+  .opacity-sm-50 { opacity: .5 !important; }
+  .opacity-sm-75 { opacity: .75 !important; }
+  .opacity-sm-100 { opacity: 1 !important; }
 }
 
+@media (min-width: 768px) {
+  .opacity-md-0 { opacity: 0 !important; }
+  .opacity-md-25 { opacity: .25 !important; }
+  .opacity-md-50 { opacity: .5 !important; }
+  .opacity-md-75 { opacity: .75 !important; }
+  .opacity-md-100 { opacity: 1 !important; }
+}
 
+@media (min-width: 992px) {
+  .opacity-lg-0 { opacity: 0 !important; }
+  .opacity-lg-25 { opacity: .25 !important; }
+  .opacity-lg-50 { opacity: .5 !important; }
+  .opacity-lg-75 { opacity: .75 !important; }
+  .opacity-lg-100 { opacity: 1 !important; }
+}
+
+@media (min-width: 1200px) {
+  .opacity-xl-0 { opacity: 0 !important; }
+  .opacity-xl-25 { opacity: .25 !important; }
+  .opacity-xl-50 { opacity: .5 !important; }
+  .opacity-xl-75 { opacity: .75 !important; }
+  .opacity-xl-100 { opacity: 1 !important; }
+}
+
+@media (min-width: 1400px) {
+  .opacity-xxl-0 { opacity: 0 !important; }
+  .opacity-xxl-25 { opacity: .25 !important; }
+  .opacity-xxl-50 { opacity: .5 !important; }
+  .opacity-xxl-75 { opacity: .75 !important; }
+  .opacity-xxl-100 { opacity: 1 !important; }
+}
+/*--------------------------------- END declaration opacity and queries--------------------------------*/
 /* ---------------------section1: portada ------------------------ */
+@media (min-width: 576px) {
+  .section1::after {
+    background-image: url(../images/tennis-portada_1280.jpg);
+    background-image:linear-gradient(to right,#d2470f 15%, transparent 100%), url(../images/tennis-portada_1280.jpg); 
+  }
+}
+  
+@supports (display: grid) {
+  .section1::after {
+  text: float-left;
+  background-image: 
+  }
+}
 
 .section1::after {
   content: "";;
@@ -83,7 +162,7 @@ color: #ffc107;
   /* Chrome 10-25, Safari 5.1-6 */
   background:-webkit-linear-gradient(to right,#d2470f 15%, transparent 100%)
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-linear-gradient(to right,#d2470f 15%, transparent 100%)
+  linear-gradient(to right,#d2470f 15%, transparent 100%)
 }
 
 .subtitle{
@@ -93,6 +172,145 @@ linear-gradient(to right,#d2470f 15%, transparent 100%)
 }
 
 /* ---------------------END section1: portada ------------------------ */
+/* -------------------------------- página participantes (with grid) --------------------------------- */ 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 2em;
+}
+
+.row > * {
+  flex: 1;
+}
+
+@supports (display: grid) {
+  .box {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+  .img:has(.block) {
+    grid-row: 4;
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    border-left-width: var(--size-4);
+  }
+
+  .grid{
+    grid-template-columns: 1fr;
+  }
+
+  .grid img{
+    max-width: 1200px;
+    margin:0;
+  }
+
+  .grid > * {
+    padding: 10px;
+    color: #fff;
+    float: center;  
+  }
+
+  .img-fluid{
+    max-width: 100%; 
+    height: auto;
+  }
+
+
+  .img-fluid2{
+    width: 100%; 
+    height: auto;
+    float: center;  
+  }
+
+.block {
+  height: auto;
+  background-color: lch(29%, 87%, 301%);
+  background-color: rgba(210, 71, 15, 0.4);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 100px;
+  grid-gap: 20px;
+  float: center;  
+  padding: 10px;
+}
+
+@supports (display: grid) {
+  .block {
+  width: auto;
+  }
+}
+
+.interview {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+  .block {
+  margin:0;
+  }
+}
+/*----------------------------- END participantes ---------------------------*/
+/* --------------------------------------págnaa Nuestro equipo (with: flex) ------------------------------------------ */
+
+
+.team-group{
+  background-color: lch(82%, 55%, 80%);
+  background-color: rgb(255,193,7);
+}
+
+#team {
+  width: 90%;
+	max-width: 1100px;
+	margin: 50px auto;
+}
+
+div#team figure {
+	background: #fefefe;
+	border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	margin: 0 2px 15px;
+	padding: 15px;
+	padding-bottom: 10px;
+	transition: opacity .4s ease-in-out;
+  display: inline-block;
+}
+
+div#team figure img {
+	width: 100%; height: auto;
+	border-bottom: 1px solid #ccc;
+	padding: 15px;
+	margin-bottom: 5px;
+}
+
+div#team small { 
+  font-size: 1rem;
+  float: right; 
+  text-transform: uppercase;
+  color: #aaa;
+} 
+
+div#team small a { 
+  color: #666; 
+  text-decoration: none; 
+  transition: .4s color;
+}
+
+div#team:hover figure:not(:hover) {
+	opacity: 0.4;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box > * {
+  flex: 1;
+}
+/*--------------------------------- END página Nuestro equipo --------------------------------*/
 /*--------------------------------- cookies banner--------------------------------*/
 #cb-cookie-banner { 
   position: fixed; 
@@ -138,138 +356,3 @@ height: 3rem;
 	overflow-x: auto;
 }
 /* ---------------------END cookies banner ------------------------ */
-/* -------------------------------- página participantes (with grid) --------------------------------- */
-.box {
-  width: 50px;
-  height: 50px;
-}
-
-.img:has(.people) {
-  grid-row: 4;
-  grid-column: 1 / -1;
-  /*max-inline-size: 100%;*/
-  grid-template-columns: 1fr 1fr;
-  border-left-width: var(--size-4);
-}
-
-/*----------------------------- END section1 portada ---------------------------*/
-/* --------------------------------------págnaa Nuestro equipo (with: flex) ------------------------------------------ */
-
-.team-group{
-  background-color: lch(82.105%, 55.717%, 80.583%);
-  background-color: rgb(255,193,7);
-}
-
-#team {
-	column-width: 320px;
-	column-gap: 15px;
-  width: 90%;
-	max-width: 1100px;
-	margin: 50px auto;
-}
-
-div#team figure {
-	background: #fefefe;
-	border: 2px solid #fcfcfc;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0 2px 15px;
-	padding: 15px;
-	padding-bottom: 10px;
-	transition: opacity .4s ease-in-out;
-  display: inline-block;
-  column-break-inside: avoid;
-}
-
-div#team figure img {
-	width: 100%; height: auto;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 15px;
-	margin-bottom: 5px;
-}
-
-div#team figure figcaption {
-  font-size: .9rem;
-	color: #444;
-  line-height: 1.5;
-}
-
-div#team small { 
-  font-size: 1rem;
-  float: right; 
-  text-transform: uppercase;
-  color: #aaa;
-} 
-
-div#team small a { 
-  color: #666; 
-  text-decoration: none; 
-  transition: .4s color;
-}
-
-div#cteam:hover figure:not(:hover) {
-	opacity: 0.4;
-}
-
-@media screen and (max-width: 750px) { 
-  #team { column-gap: 0px; }
-  #team figure { width: 100%; }
-}
-/*--------------------------------- END página Nuestro equipo --------------------------------*/
-/*--------------------------------- declaración de opacidad, queries,  --------------------------------*/
-.o-0 { opacity: 0; }
-.o-25 { opacity: .25; }
-.o-50 { opacity: .5; }
-.o-75 { opacity: .75; }
-.o-100 { opacity: 1; }
-
-.opacity-0-hover:hover { opacity: 0 !important; }
-.opacity-25-hover:hover { opacity: .25 !important; }
-.opacity-50-hover:hover { opacity: .5 !important; }
-.opacity-75-hover:hover { opacity: .75 !important; }
-.opacity-100-hover:hover { opacity: 1 !important; }
- 
-@media (min-width: 576px) {
-  .section1::after {
-    background-image: url(../images/tennis-portada_1280.jpg);
-    background-image:linear-gradient(to right,#d2470f 15%, transparent 100%), url(../images/tennis-portada_1280.jpg); 
-  }
-
-  .opacity-sm-0 { opacity: 0 !important; }
-  .opacity-sm-25 { opacity: .25 !important; }
-  .opacity-sm-50 { opacity: .5 !important; }
-  .opacity-sm-75 { opacity: .75 !important; }
-  .opacity-sm-100 { opacity: 1 !important; }
-}
-
-@media (min-width: 768px) {
-  .opacity-md-0 { opacity: 0 !important; }
-  .opacity-md-25 { opacity: .25 !important; }
-  .opacity-md-50 { opacity: .5 !important; }
-  .opacity-md-75 { opacity: .75 !important; }
-  .opacity-md-100 { opacity: 1 !important; }
-}
-
-@media (min-width: 992px) {
-  .opacity-lg-0 { opacity: 0 !important; }
-  .opacity-lg-25 { opacity: .25 !important; }
-  .opacity-lg-50 { opacity: .5 !important; }
-  .opacity-lg-75 { opacity: .75 !important; }
-  .opacity-lg-100 { opacity: 1 !important; }
-}
-
-@media (min-width: 1200px) {
-  .opacity-xl-0 { opacity: 0 !important; }
-  .opacity-xl-25 { opacity: .25 !important; }
-  .opacity-xl-50 { opacity: .5 !important; }
-  .opacity-xl-75 { opacity: .75 !important; }
-  .opacity-xl-100 { opacity: 1 !important; }
-}
-
-@media (min-width: 1400px) {
-  .opacity-xxl-0 { opacity: 0 !important; }
-  .opacity-xxl-25 { opacity: .25 !important; }
-  .opacity-xxl-50 { opacity: .5 !important; }
-  .opacity-xxl-75 { opacity: .75 !important; }
-  .opacity-xxl-100 { opacity: 1 !important; }
-}
-/*--------------------------------- END declaraciones --------------------------------*/
