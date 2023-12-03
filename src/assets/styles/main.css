@@ -284,6 +284,16 @@ div#team:hover figure:not(:hover) {
 }
 
 /* --------------------------------- END página Nuestro equipo -------------------------------- */
+.mask{
+  background-color: lch(29%, 87%, 301%);
+  background-color: rgb(210 71 15);
+  transition: background-color 1s linear;
+}
+
+.mask:hover{
+  background-color: lch(82%, 55%, 80%);
+  background-color: rgb(255 193 7);
+}
 
 /* --------------------------------- cookies banner-------------------------------- */
 #cb-cookie-banner { 
