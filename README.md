@@ -4,6 +4,8 @@ UOC Boilerplate is a starter template for the HTML and CSS Tools courses from th
 
 This is the 3.x version of UOC Boilerplate, available since the UOC 2020-2 semester.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3e0e79c4-677c-4eb7-82c4-6dbcf6cd9592/deploy-status)](https://app.netlify.com/sites/remarkable-mandazi-e6afb4/deploys)
+
 ## Requirements
 
 [Node.js](http://nodejs.org/) >= 14.15.x
